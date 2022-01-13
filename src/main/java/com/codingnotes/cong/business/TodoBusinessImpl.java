@@ -6,14 +6,14 @@ import com.codingnotes.cong.data.api.*;
 // TodoBusinessImpl is System Under Test
 // todoService is a dependency
 public class TodoBusinessImpl {
-	private TodoService todoService;
+	private final TodoService todoService;
 
 	TodoBusinessImpl(TodoService todoService) {
 		this.todoService = todoService;
 	}
 
 	public List<String> retrieveTodosRelatedToSpring(String user) {
-		List<String> filteredTodos = new ArrayList<String>();
+		List<String> filteredTodos = new ArrayList<>();
 		List<String> allTodos = todoService.retrieveTodos(user);
 		for (String todo : allTodos) {
 			if (todo.contains("Spring")) {
@@ -22,15 +22,13 @@ public class TodoBusinessImpl {
 		}
 		return filteredTodos;
 	}
-    public List<String> deleteTodosNotRelatedToSpring(String user) {
-        List<String> filteredTodos = new ArrayList<String>();
+    public void deleteTodosNotRelatedToSpring(String user) {
         List<String> allTodos = todoService.retrieveTodos(user);
         for (String todo : allTodos) {
             if (!todo.contains("Spring")) {
                 todoService.deleteTodo(todo);
             }
         }
-        return filteredTodos;
     }
 
 }
