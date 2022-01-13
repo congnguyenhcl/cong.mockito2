@@ -16,7 +16,7 @@ public class TodoBusinessImpl {
 		List<String> filteredTodos = new ArrayList<>();
 		List<String> allTodos = todoService.retrieveTodos(todo);
 		for (String tempTodo : allTodos) {
-			if (todo.contains("Spring")) {
+			if (tempTodo.contains("Spring")) {
 				filteredTodos.add(tempTodo);
 			}
 		}
@@ -25,7 +25,7 @@ public class TodoBusinessImpl {
     public void deleteTodosNotRelatedToSpring(String todo) {
         List<String> allTodos = todoService.retrieveTodos(todo);
         for (String tempTodo : allTodos) {
-            if (!todo.contains("Spring")) {
+            if (!tempTodo.contains("Spring")) {
                 todoService.deleteTodo(tempTodo);
             }
         }

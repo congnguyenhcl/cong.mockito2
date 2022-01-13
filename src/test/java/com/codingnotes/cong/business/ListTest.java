@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 public class ListTest {
     /* Test written using BDD or Behavior Driven Development style
      *  Notice instead of using when...thenReturn, given...willReturn is used
-     *  Instead of assertEquals(expected, acdtual), assertThat(actual, matcher) is used
+     *  Instead of assertEquals(expected, actual), assertThat(actual, matcher) is used
      *  BDD helps test writing more readable.
      *
      */
