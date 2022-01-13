@@ -12,21 +12,21 @@ public class TodoBusinessImpl {
 		this.todoService = todoService;
 	}
 
-	public List<String> retrieveTodosRelatedToSpring(String user) {
+	public List<String> retrieveTodosRelatedToSpring(String todo) {
 		List<String> filteredTodos = new ArrayList<>();
-		List<String> allTodos = todoService.retrieveTodos(user);
-		for (String todo : allTodos) {
+		List<String> allTodos = todoService.retrieveTodos(todo);
+		for (String tempTodo : allTodos) {
 			if (todo.contains("Spring")) {
-				filteredTodos.add(todo);
+				filteredTodos.add(tempTodo);
 			}
 		}
 		return filteredTodos;
 	}
-    public void deleteTodosNotRelatedToSpring(String user) {
-        List<String> allTodos = todoService.retrieveTodos(user);
-        for (String todo : allTodos) {
+    public void deleteTodosNotRelatedToSpring(String todo) {
+        List<String> allTodos = todoService.retrieveTodos(todo);
+        for (String tempTodo : allTodos) {
             if (!todo.contains("Spring")) {
-                todoService.deleteTodo(todo);
+                todoService.deleteTodo(tempTodo);
             }
         }
     }
